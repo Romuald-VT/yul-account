@@ -82,8 +82,10 @@ public class UserService {
             usr.setPassword(passwordEncoder.encode(dto.password()));
             usr.setPhoneNumber(dto.phoneNumber());
             usr.setRole(new Role(null, UserRole.USER));
-
-           return dtoMapper.apply(repository.save(usr));
+            
+            User user = repository.save(usr);
+            validationService.saveUser(user);
+           return dtoMapper.apply(user);
         }
     }
 

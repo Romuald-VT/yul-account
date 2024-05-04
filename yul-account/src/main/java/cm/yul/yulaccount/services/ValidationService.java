@@ -30,8 +30,8 @@ public class ValidationService {
         validation.setExpiration(activation.plus(10,ChronoUnit.MINUTES));
 
         Random rand = new Random();
-        rand.nextInt(999999);
-        String code = String.format("%06d", rand);
+        int r = rand.nextInt(999999);
+        String code = String.format("%06d", r);
         validation.setCode(code);
 
         repository.save(validation);

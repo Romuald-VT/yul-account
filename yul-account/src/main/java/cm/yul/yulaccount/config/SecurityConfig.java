@@ -18,6 +18,8 @@ public class SecurityConfig {
        .authorizeHttpRequests(authorize -> authorize
                                            .requestMatchers(HttpMethod.POST,"/add").permitAll()
                                            .requestMatchers(HttpMethod.POST,"/activate").permitAll()
+                                           .requestMatchers(HttpMethod.GET,"/all").permitAll()
+                                           .requestMatchers(HttpMethod.DELETE,"/all").permitAll()
                                            .anyRequest().authenticated())
        .build();
     }

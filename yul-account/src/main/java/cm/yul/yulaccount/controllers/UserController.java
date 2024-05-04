@@ -48,7 +48,7 @@ public class UserController {
     }
     
     @PostMapping(path="activate")
-    public ResponseEntity<HttpStatus>activateUser(Map<String,String> activation)
+    public ResponseEntity<HttpStatus>activateUser(@RequestBody Map<String,String> activation)
     {
         service.receiveActivation(activation);
         return new ResponseEntity<>(HttpStatus.FOUND);
